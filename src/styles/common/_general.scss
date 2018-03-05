@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: $secondary;
+
+  &:hover {
+    color: $active;
+  }
+}
+
+body {
+  background: #fff;
+  color: $primary;
+}
