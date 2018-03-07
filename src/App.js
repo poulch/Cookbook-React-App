@@ -1,22 +1,26 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
+
+import Ingredients from './containers/ingredients.container';
+import Meals from './containers/meals.container';
+import Search from './containers/search.container';
+import Navbar from './components/navbar.component';
 import './styles/main.scss';
 
-class App extends Component {
-  render() {
-    return (
-     <div className="ui container">
-        <Router>
-          <Switch>
-            <Route path="" component=""/>
-            <Route path="" component=""/>
-            <Route path="" component=""/>
-          </Switch>
-        </Router>
-     </div>
-    );
-  }
-}
+const App = () => (
+  <div className="ui container">
+    <Router>
+      <div>
+        <Navbar />
+        <div className="page-container">
+          <Route path="/ingredients" component={Ingredients} />
+          <Route path="/meals" component={Meals} />
+          <Route path="/search" component={Search} />
+        </div>
+      </div>
+    </Router>
+  </div>
+);
 
 export default App;
