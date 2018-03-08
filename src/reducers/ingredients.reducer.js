@@ -1,6 +1,21 @@
 import { ADD_INGREDIENT, REMOVE_INGREDIENT, UPDATE_INGREDIENT, EDIT_INGREDIENT } from '../actions/ingredients.action';
 
-export default function(state = [], action) {
+const initState = [
+  {
+    id: 'dd054ee0-2318-11e8-b725-711261c2c67a',
+    name: 'Mąka',
+    date: 1520545032910,
+    edited: false,
+  },
+  {
+    id: 'e04ead80-2318-11e8-b725-711261c2c67a',
+    name: 'Cukier',
+    date: 1520545032910,
+    edited: false,
+  },
+];
+
+export default function(state = initState, action) {
   switch (action.type) {
     case ADD_INGREDIENT:
       return [...state, action.ingredient];

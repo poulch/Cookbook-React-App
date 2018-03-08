@@ -31,7 +31,12 @@ class Ingredients extends Component {
   render() {
     return (
       <React.Fragment>
-        <InputBar onFormSubmit={this.handleAddIngredient} icon="add circle" placeholder="Add ingredients" />
+        <InputBar
+          inputClass="fluid"
+          onFormSubmit={this.handleAddIngredient}
+          icon="add circle"
+          placeholder="Add ingredients"
+        />
         <IngredientsList
           ingredients={this.props.ingredients}
           onIngredientRemove={this.handleRemoveIngredient}

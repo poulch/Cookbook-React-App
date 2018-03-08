@@ -1,20 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Menu } from 'semantic-ui-react';
 
 const Navbar = () => (
-  <header>
+  <header className="page-header">
     <nav>
-      <ul>
-        <li>
-          <NavLink to="/ingredients">Ingreditnets</NavLink>
-        </li>
-        <li>
-          <NavLink to="/meals">Meals</NavLink>
-        </li>
-        <li>
-          <NavLink to="/search">Search</NavLink>
-        </li>
-      </ul>
+      <Menu pointing secondary>
+        <Menu.Item as={NavLink} to="/ingredients" name="Ingreditnets" />
+        <Menu.Item as={NavLink} to="/meals" name="Meals" />
+        <Menu.Item as={NavLink} to="/search" name="Search" />
+      </Menu>
     </nav>
   </header>
 );
