@@ -29,9 +29,11 @@ const MealsList = ({ meals, onMealRemove }) => (
               <Button icon as={Link} to={`meals/${meal.id}`}>
                 <Icon name="anchor" />
               </Button>
-              <Button icon onClick={() => onMealRemove(meal.id)}>
-                <Icon name="remove" />
-              </Button>
+              {onMealRemove && (
+                <Button icon onClick={() => onMealRemove(meal.id)}>
+                  <Icon name="remove" />
+                </Button>
+              )}
             </Table.Cell>
           </Table.Row>
         );
@@ -42,7 +44,11 @@ const MealsList = ({ meals, onMealRemove }) => (
 
 MealsList.propTypes = {
   meals: PropTypes.array.isRequired,
-  onMealRemove: PropTypes.func.isRequired,
+  onMealRemove: PropTypes.func,
+};
+
+MealsList.defaultProps = {
+  onMealRemove: null,
 };
 
 export default MealsList;
