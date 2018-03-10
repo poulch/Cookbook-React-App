@@ -4,7 +4,7 @@ import { Table, Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { formatDate } from '../utils';
 
-const MealsList = ({ meals }) => (
+const MealsList = ({ meals, onMealRemove }) => (
   <Table singleLine>
     <Table.Header>
       <Table.Row>
@@ -23,11 +23,14 @@ const MealsList = ({ meals }) => (
             <Table.Cell>{meal.name}</Table.Cell>
             <Table.Cell>{formatDate(date)}</Table.Cell>
             <Table.Cell>
-              <Button icon>
+              <Button icon as={Link} to={`meals/edit/${meal.id}`}>
                 <Icon name="edit" />
               </Button>
               <Button icon as={Link} to={`meals/${meal.id}`}>
                 <Icon name="anchor" />
+              </Button>
+              <Button icon onClick={() => onMealRemove(meal.id)}>
+                <Icon name="remove" />
               </Button>
             </Table.Cell>
           </Table.Row>
@@ -39,6 +42,7 @@ const MealsList = ({ meals }) => (
 
 MealsList.propTypes = {
   meals: PropTypes.array.isRequired,
+  onMealRemove: PropTypes.func.isRequired,
 };
 
 export default MealsList;

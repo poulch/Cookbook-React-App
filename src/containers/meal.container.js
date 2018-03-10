@@ -12,7 +12,7 @@ const Meal = ({ meals, ingredients, match }) => {
 
   return (
     <React.Fragment>
-      <Button as={Link} to="/meals" primary>
+      <Button className="main-btn" as={Link} to="/meals" primary>
         Powrót
       </Button>
       <Container text>

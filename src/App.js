@@ -17,7 +17,8 @@ const App = () => (
         <Navbar />
         <div className="page-container">
           <Switch>
-            <Route path="/meals/form" component={MealForm} />
+            <Route path="/meals/add" component={MealForm} />
+            <Route path="/meals/edit/:id" component={MealForm} />
             <Route path="/meals/:id" component={Meal} />
             <Route path="/meals" component={Meals} />
             <Route path="/ingredients" component={Ingredients} />
