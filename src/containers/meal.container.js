@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button, Container, List, Header, Divider } from 'semantic-ui-react';
 
-const Meal = ({ meals, ingredients, match }) => {
+const Meal = props => {
+  const { meals, ingredients, match } = props;
   const mealId = match.params.id;
   const selectedMeal = meals.find(meal => meal.id === mealId);
   const selectedIngredients = ingredients.filter(ingredient => selectedMeal.ingredients.includes(ingredient.id));
-  console.log(selectedIngredients);
 
   return (
     <React.Fragment>

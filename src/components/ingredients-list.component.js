@@ -4,8 +4,10 @@ import { Table, Button, Icon } from 'semantic-ui-react';
 import InputBar from '../components/input-bar.component';
 import { formatDate } from '../utils';
 
-const IngredientsList = ({ ingredients, onIngredientRemove, onIngredientEdit, onIngredientUpdate }) => {
+const IngredientsList = props => {
+  const { ingredients, onIngredientRemove, onIngredientEdit, onIngredientUpdate } = props;
   let index = 0;
+
   return (
     <Table singleLine>
       <Table.Header>

@@ -74,12 +74,10 @@ class MealForm extends Component {
   };
 
   handleIngredientRemove = ingredientId => {
-    const selectedIngredientsFiltered = this.state.selectedIngredients.filter(
-      ingredient => ingredient !== ingredientId
-    );
+    const selectedIngredients = this.state.selectedIngredients.filter(ingredient => ingredient !== ingredientId);
 
     this.setState({
-      selectedIngredients: selectedIngredientsFiltered,
+      selectedIngredients,
     });
   };
 

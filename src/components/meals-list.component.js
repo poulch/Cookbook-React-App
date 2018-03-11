@@ -4,8 +4,10 @@ import { Table, Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { formatDate } from '../utils';
 
-const MealsList = ({ meals, onMealRemove }) => {
+const MealsList = props => {
+  const { meals, onMealRemove } = props;
   let index = 0;
+
   return (
     <Table singleLine>
       <Table.Header>
