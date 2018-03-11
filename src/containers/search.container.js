@@ -6,11 +6,11 @@ import MealList from '../components/meals-list.component';
 
 class Search extends Component {
   state = {
+    combineMealsAndIngredients: [],
     searchResults: [],
   };
 
-  handleFormSubmit = term => {
-    const lowerTerm = term.toLowerCase();
+  componentDidMount() {
     const combineMealsAndIngredients = this.props.meals.map(meal => {
       const fullIngredients = meal.ingredients.map(ingredient =>
         this.props.ingredients.find(ingret => ingret.id === ingredient)
@@ -19,7 +19,15 @@ class Search extends Component {
       return meal;
     });
 
-    const searchResults = combineMealsAndIngredients.filter(meal => {
+    this.setState({
+      combineMealsAndIngredients,
+    });
+  }
+
+  handleFormSubmit = term => {
+    const lowerTerm = term.toLowerCase();
+
+    const searchResults = this.state.combineMealsAndIngredients.filter(meal => {
       let status = false;
       if (meal.name.toLowerCase().indexOf(lowerTerm) !== -1 || meal.text.toLowerCase().indexOf(lowerTerm) !== -1) {
         status = true;

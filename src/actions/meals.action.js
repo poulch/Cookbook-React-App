@@ -1,6 +1,7 @@
 export const ADD_MEAL = 'ADD_MEAL';
 export const REMOVE_MEAL = 'REMOVE_MEAL';
 export const EDIT_MEAL = 'EDIT_MEAL';
+export const REMOVE_INGREDIENT = 'REMOVE_INGREDIENT';
 
 export const addMeal = meal => ({
   type: ADD_MEAL,
@@ -15,4 +16,9 @@ export const removeMeal = mealId => ({
 export const editMeal = meal => ({
   type: EDIT_MEAL,
   meal,
+});
+
+export const removeIngredientFromMeal = ingredientId => ({
+  type: REMOVE_INGREDIENT,
+  ingredientId,
 });

@@ -5,6 +5,7 @@ import uuid from 'uuid/v1';
 import InputBar from '../components/input-bar.component';
 import IngredientsList from '../components/ingredients-list.component';
 import { addIngredient, removeIngredint, updateIgredient, editIngredient } from '../actions/ingredients.action';
+import { removeIngredientFromMeal } from '../actions/meals.action';
 
 class Ingredients extends Component {
   handleAddIngredient = ingredient => {
@@ -18,6 +19,7 @@ class Ingredients extends Component {
 
   handleRemoveIngredient = ingredientId => {
     this.props.removeIngredient(ingredientId);
+    this.props.removeIngredientFromMeal(ingredientId);
   };
 
   handleEditIngredient = ingredientId => {
@@ -35,7 +37,7 @@ class Ingredients extends Component {
           inputClass="fluid"
           onFormSubmit={this.handleAddIngredient}
           icon="add circle"
-          placeholder="Add ingredients"
+          placeholder="Dodaj składnik"
         />
         <IngredientsList
           ingredients={this.props.ingredients}
@@ -54,6 +56,7 @@ Ingredients.propTypes = {
   editIngredient: PropTypes.func.isRequired,
   updateIngredient: PropTypes.func.isRequired,
   ingredients: PropTypes.array.isRequired,
+  removeIngredientFromMeal: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -65,6 +68,7 @@ const mapDispatchToProps = dispatch => ({
   removeIngredient: ingredientId => dispatch(removeIngredint(ingredientId)),
   editIngredient: ingredientId => dispatch(editIngredient(ingredientId)),
   updateIngredient: ingredient => dispatch(updateIgredient(ingredient)),
+  removeIngredientFromMeal: ingredientId => dispatch(removeIngredientFromMeal(ingredientId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Ingredients);
